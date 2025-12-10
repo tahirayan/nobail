@@ -1,12 +1,12 @@
 "use client";
 
-import { Card, CardContent, CardDescription } from "../ui/card";
-import Image from "next/image";
-import { Button } from "../ui/button";
+import { AnimatePresence, motion } from "framer-motion";
 import { Building, Plus } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardDescription } from "../ui/card";
 
 const containerVariants = {
   collapsed: {
@@ -86,16 +86,16 @@ export default function Venues() {
   };
 
   return (
-    <div className="flex flex-col gap-2 border-2 overflow-auto rounded-2xl [::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="flex flex-col gap-2 overflow-auto rounded-2xl border-2 [-ms-overflow-style:none] [scrollbar-width:none] [::-webkit-scrollbar]:hidden">
       <div className="sticky left-0 flex justify-between">
-        <h1 className="flex items-center gap-2 text-2xl font-bold p-2">
+        <h1 className="flex items-center gap-2 p-2 font-bold text-2xl">
           <Building className="size-6" />
           <span>Venues</span>
         </h1>
         <Button
-          variant="outline"
-          className="border-2 border-t-0 border-r-0 rounded-r-none rounded-t-none"
+          className="rounded-t-none rounded-r-none border-2 border-t-0 border-r-0"
           onClick={handleExpandClick}
+          variant="outline"
         >
           <motion.span
             animate={{ rotate: expanded ? 45 : 0 }}
@@ -107,11 +107,10 @@ export default function Venues() {
         </Button>
       </div>
       <motion.div
-        layout
-        variants={containerVariants}
-        initial="collapsed"
         animate={expanded ? "expanded" : "collapsed"}
         className={cn("flex gap-2 p-2", expanded ? "flex-wrap" : "")}
+        initial="collapsed"
+        layout
         transition={{
           layout: {
             type: "spring",
@@ -119,15 +118,15 @@ export default function Venues() {
             damping: 25,
           },
         }}
+        variants={containerVariants}
       >
         <AnimatePresence mode="popLayout">
           {venues.map((venue, index) => (
             <motion.div
+              animate={expanded ? "expanded" : "collapsed"}
+              initial="collapsed"
               key={venue.name}
               layout
-              variants={cardVariants}
-              initial="collapsed"
-              animate={expanded ? "expanded" : "collapsed"}
               transition={{
                 layout: {
                   type: "spring",
@@ -135,20 +134,23 @@ export default function Venues() {
                   damping: 30,
                 },
               }}
+              variants={cardVariants}
             >
-              <Card className="relative py-2 rounded-lg shrink-0 overflow-hidden w-[160px]">
-                <CardContent className="group flex items-center justify-center px-2 rounded-md h-[160px]">
-                  <CardDescription className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1 rounded-md bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-white p-2 text-center">
-                    <span className="text-lg font-bold">{venue.name}</span>
-                    <span className="text-xs font-medium bg-primary/20 px-2 py-0.5 rounded-full">{venue.type}</span>
+              <Card className="relative w-[160px] shrink-0 overflow-hidden rounded-lg py-2">
+                <CardContent className="group flex h-[160px] items-center justify-center rounded-md px-2">
+                  <CardDescription className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1 rounded-md bg-black/60 p-2 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                    <span className="font-bold text-lg">{venue.name}</span>
+                    <span className="rounded-full bg-primary/20 px-2 py-0.5 font-medium text-xs">
+                      {venue.type}
+                    </span>
                     <span className="text-xs">Espresso: {venue.espresso}</span>
                   </CardDescription>
                   <Image
-                    className="rounded-sm shrink-0 object-cover h-full w-full"
-                    src={venue.image}
                     alt={venue.name}
-                    width={144}
+                    className="h-full w-full shrink-0 rounded-sm object-cover"
                     height={144}
+                    src={venue.image}
+                    width={144}
                   />
                 </CardContent>
               </Card>

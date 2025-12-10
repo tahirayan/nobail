@@ -1,5 +1,5 @@
-import Venues from "@/components/widgets/venues";
 import Events from "@/components/widgets/events";
+import Venues from "@/components/widgets/venues";
 
 export default function Dashboard() {
   return (

@@ -1,5 +1,5 @@
-import PersonalInfo from "@/components/widgets/personal-info";
 import Header from "@/components/widgets/header";
+import PersonalInfo from "@/components/widgets/personal-info";
 
 export default function DashboardLayout({
   children,
@@ -7,9 +7,9 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <Header />
-      <div className="grid place-items-center flex-grow py-4">
+      <div className="grid flex-grow place-items-center py-4">
         <div className="container grid grid-cols-[24rem_minmax(0,100%)] items-start gap-4">
           <PersonalInfo />
           {children}

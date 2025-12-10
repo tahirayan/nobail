@@ -20,6 +20,7 @@ type Event = {
   day: string;
   title: string;
   host?: string;
+  avatar?: string;
   time: string;
   prepayment: string;
   credit: string;
@@ -42,7 +43,8 @@ const events: Event[] = [
     id: "mon1",
     day: "monday",
     title: "Slam Dunk Poetry",
-    host: "Hamza Khan?",
+    host: "Hamza Khan",
+    avatar: "/hamza.jpeg",
     time: "Mondays 18:00–20:00",
     prepayment: "20€",
     credit: "20€",
@@ -56,6 +58,7 @@ const events: Event[] = [
     day: "tuesday",
     title: "Deeper Discussions",
     host: "Ucha Vekua",
+    avatar: "/Ucha Vekua.jpeg",
     time: "Tuesdays 18:00–20:00",
     prepayment: "10€",
     credit: "20€",
@@ -72,6 +75,7 @@ const events: Event[] = [
     day: "wednesday",
     title: "5-minute Vibe Check",
     host: "Shane Cooper",
+    avatar: "/Shane Cooper.jpeg",
     time: "Wednesdays 18:00–19:00",
     prepayment: "6€",
     credit: "10€",
@@ -86,7 +90,8 @@ const events: Event[] = [
     id: "thu1",
     day: "thursday",
     title: "Amateur (Comedy Hour)",
-    host: "Hamza Khan?",
+    host: "Hamza Khan",
+    avatar: "/hamza.jpeg",
     time: "Thursdays 18:00–20:00",
     prepayment: "20€",
     credit: "20€",
@@ -100,6 +105,7 @@ const events: Event[] = [
     day: "friday",
     title: "House Party",
     host: "Markus M. Milder",
+    avatar: "/Markus M. Milder.jpeg",
     time: "Fridays 19:00–23:00",
     prepayment: "21€",
     credit: "Open Bar",
@@ -115,6 +121,7 @@ const events: Event[] = [
     day: "saturday",
     title: "Table At a Time",
     host: "Markus M. Milder",
+    avatar: "/Markus M. Milder.jpeg",
     time: "Saturdays 19:00–23:00",
     prepayment: "24€",
     credit: "30€",
@@ -130,6 +137,7 @@ const events: Event[] = [
     day: "sunday",
     title: "Lunch, Accountability & Deepwork",
     host: "Markus M. Milder",
+    avatar: "/Markus M. Milder.jpeg",
     time: "Sundays 12:00–19:00",
     prepayment: "18€",
     credit: "20€",
@@ -189,7 +197,7 @@ export default function Events() {
   });
 
   return (
-    <Card className="py-2 border-2">
+    <Card className="border-2 py-2">
       <CardHeader className="px-2">
         <CardTitle className="flex items-center gap-2 font-semibold text-xl">
           <Search className="size-6 text-foreground" />
@@ -201,10 +209,10 @@ export default function Events() {
       </CardHeader>
       <CardContent className="flex flex-col gap-4 px-2">
         {/* Day Filter Segmented Control */}
-        <div className="flex items-center justify-center rounded-md border-2 bg-secondary/30 p-1 overflow-x-auto">
+        <div className="flex items-center justify-center overflow-x-auto rounded-md border-2 bg-secondary/30 p-1">
           {dayFilters.map((day) => (
             <button
-              className={`flex-1 rounded-sm px-3 py-2 font-medium text-sm transition-all duration-200 whitespace-nowrap ${
+              className={`flex-1 whitespace-nowrap rounded-sm px-3 py-2 font-medium text-sm transition-all duration-200 ${
                 selectedDay === day.id
                   ? "bg-foreground text-primary-foreground shadow-sm"
                   : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
@@ -232,7 +240,7 @@ export default function Events() {
               >
                 {/* Discount Flair */}
                 {event.isDiscountApplied && (
-                  <div className="-left-2 -top-2 absolute z-10">
+                  <div className="left-2 -top-2 absolute z-10">
                     <div
                       className={cn(
                         "flex items-center gap-1 rounded-full px-2 py-1 font-medium text-white text-xs shadow-lg",
@@ -266,7 +274,7 @@ export default function Events() {
                                 .replace(/\s+/g, "-")
                                 .replace(/[^a-z0-9-]/g, "")}`}
                             >
-                              <HostAvatar name={event.host} size="sm" />
+                              <HostAvatar name={event.host} avatar={event.avatar} size="sm" />
                               <span className="hover:underline">
                                 {event.host}
                               </span>
@@ -310,11 +318,12 @@ export default function Events() {
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="text-right">
-                            {event.isDiscountApplied && event.originalPrepayment && (
-                              <div className="text-muted-foreground text-xs line-through">
-                                Prepayment: {event.originalPrepayment}
-                              </div>
-                            )}
+                            {event.isDiscountApplied &&
+                              event.originalPrepayment && (
+                                <div className="text-muted-foreground text-xs line-through">
+                                  Prepayment: {event.originalPrepayment}
+                                </div>
+                              )}
                             <div className="flex flex-col">
                               <span className="font-bold text-xl">
                                 Prepayment: {event.prepayment}
