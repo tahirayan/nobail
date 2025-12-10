@@ -39,90 +39,115 @@ type Event = {
 
 const events: Event[] = [
   {
-    id: "1",
-    day: "friday",
-    title: "Deeper Discussions",
-    host: "Rooban Letchumanan",
-    time: "Fridays 20:00-00:00",
-    prepayment: "10€",
-    credit: "10€",
-    description: "Prepayment 10€ → credit 10€ for food & drinks",
-    companies: "Wise, Bolt, Pipedrive, Veriff",
-    location: "Secret Old Town apartment",
-    spots: { current: 42, total: 50 },
-    relatedEventId: "3",
+    id: "mon1",
+    day: "monday",
+    title: "Slam Dunk Poetry",
+    host: "Hamza Khan?",
+    time: "Mondays 18:00–20:00",
+    prepayment: "20€",
+    credit: "20€",
+    description: "Nearly everything is up to the host",
+    companies: "Wise employees",
+    location: "Barbarea",
+    spots: { current: 0, total: 10 },
   },
   {
-    id: "2",
-    day: "friday",
-    title: "House Party",
-    host: "Markus Milder",
-    time: "Fridays 20:00-00:00",
-    prepayment: "30€",
-    credit: "Free",
-    description: "Prepayment 30€ and rest is free",
-    companies: "Wise, Bolt, Pipedrive, Veriff",
-    location: "Secret apartment in Old Town (thick walls)",
-    spots: { current: 25, total: 50 },
-  },
-  {
-    id: "3",
+    id: "tue1",
     day: "tuesday",
     title: "Deeper Discussions",
-    host: "Rooban Letchumanan",
-    time: "Tuesdays 19:00-21:00",
+    host: "Ucha Vekua",
+    time: "Tuesdays 18:00–20:00",
     prepayment: "10€",
     credit: "20€",
-    description:
-      "Prepayment 10€ → credit 20€ for food & drinks (First time at a venue: 50% off)",
-    companies: "Wise",
-    location: "Pudel Bar, Telliskivi",
-    spots: { current: 6, total: 10 },
-    relatedEventId: "1",
-    isSpecialVariant: true,
-  },
-  {
-    id: "4",
-    day: "saturday",
-    title: "Table at a Time",
-    host: "Markus Milder",
-    time: "Every Saturday 19:00-23:00",
-    prepayment: "5€",
-    credit: "20€",
-    description:
-      "Structured networking where conversations are easy, natural, and fun from the start",
-    companies: "All Welcome",
-    location: "NoKu in the Old Town",
-    spots: { current: 7, total: 30 },
-    isExclusive: false,
+    description: "Prepay 10€ for 20€ of food and drinks",
+    companies: "Wise employees",
+    location: "Pudel Bar · Telliskivi",
+    spots: { current: 8, total: 10 },
     isDiscountApplied: true,
     discountType: 1,
-    originalPrepayment: "10€",
-    originalCredit: "20€",
     discountAmount: "50%",
   },
   {
-    id: "5",
-    day: "sunday",
-    title: "5min Vibe Check",
-    time: "Sunday 19:00-20:00",
-    prepayment: "12€",
-    credit: "20€",
-    description: "First time at Whisper Sister - 40% discount applied!",
-    companies: "Wise, Bolt, Pipedrive, Veriff",
-    location: "Whisper Sister cocktail bar near Solaris",
-    spots: { current: 0, total: 20 },
+    id: "wed1",
+    day: "wednesday",
+    title: "5-minute Vibe Check",
+    host: "Shane Cooper",
+    time: "Wednesdays 18:00–19:00",
+    prepayment: "6€",
+    credit: "10€",
+    description: "Prepay 6€ for 10€ of food and drinks",
+    companies: "Bolt, Wise, Veriff, Pipedrive",
+    location: "NoKu · Old Town",
+    spots: { current: 1, total: 20 },
     isDiscountApplied: true,
-    discountType: 1,
-    originalPrepayment: "20€",
-    originalCredit: "20€",
     discountAmount: "40%",
+  },
+  {
+    id: "thu1",
+    day: "thursday",
+    title: "Amateur (Comedy Hour)",
+    host: "Hamza Khan?",
+    time: "Thursdays 18:00–20:00",
+    prepayment: "20€",
+    credit: "20€",
+    description: "Nearly everything is up to the host",
+    companies: "Wise employees",
+    location: "Barbarea",
+    spots: { current: 0, total: 10 },
+  },
+  {
+    id: "fri1",
+    day: "friday",
+    title: "House Party",
+    host: "Markus M. Milder",
+    time: "Fridays 19:00–23:00",
+    prepayment: "21€",
+    credit: "Open Bar",
+    description: "Prepay 21€ (instead of 30€) for an open bar",
+    companies: "Bolt, Wise, Veriff, Pipedrive",
+    location: "Secret location · Old Town",
+    spots: { current: 2, total: 30 },
+    isDiscountApplied: true,
+    discountAmount: "30%",
+  },
+  {
+    id: "sat1",
+    day: "saturday",
+    title: "Table At a Time",
+    host: "Markus M. Milder",
+    time: "Saturdays 19:00–23:00",
+    prepayment: "24€",
+    credit: "30€",
+    description: "Prepay 24€ for 30€ of food and drinks",
+    companies: "Bolt, Wise, Veriff, Pipedrive",
+    location: "NoKu · Old Town",
+    spots: { current: 3, total: 30 },
+    isDiscountApplied: true,
+    discountAmount: "20%",
+  },
+  {
+    id: "sun1",
+    day: "sunday",
+    title: "Lunch, Accountability & Deepwork",
+    host: "Markus M. Milder",
+    time: "Sundays 12:00–19:00",
+    prepayment: "18€",
+    credit: "20€",
+    description: "Prepay 18€ for 20€ of food and drinks",
+    companies: "Bolt, Wise, Veriff, Pipedrive",
+    location: "Spaces & Levier · Rotermanni",
+    spots: { current: 4, total: 10 },
+    isDiscountApplied: true,
+    discountAmount: "10%",
   },
 ];
 
 const dayFilters = [
   { id: "all", label: "All Days" },
+  { id: "monday", label: "Monday" },
   { id: "tuesday", label: "Tuesday" },
+  { id: "wednesday", label: "Wednesday" },
+  { id: "thursday", label: "Thursday" },
   { id: "friday", label: "Friday" },
   { id: "saturday", label: "Saturday" },
   { id: "sunday", label: "Sunday" },
@@ -166,7 +191,7 @@ export default function Events() {
   return (
     <Card className="py-2 border-2">
       <CardHeader className="px-2">
-        <CardTitle className="flex items-center space-x-2 font-semibold text-xl">
+        <CardTitle className="flex items-center gap-2 font-semibold text-xl">
           <Search className="size-6 text-foreground" />
           <span>Discover</span>
         </CardTitle>
@@ -176,10 +201,10 @@ export default function Events() {
       </CardHeader>
       <CardContent className="flex flex-col gap-4 px-2">
         {/* Day Filter Segmented Control */}
-        <div className="flex items-center justify-center rounded-md border-2 bg-secondary/30 p-1">
+        <div className="flex items-center justify-center rounded-md border-2 bg-secondary/30 p-1 overflow-x-auto">
           {dayFilters.map((day) => (
             <button
-              className={`flex-1 rounded-sm px-4 py-2 font-medium text-sm transition-all duration-200 ${
+              className={`flex-1 rounded-sm px-3 py-2 font-medium text-sm transition-all duration-200 whitespace-nowrap ${
                 selectedDay === day.id
                   ? "bg-foreground text-primary-foreground shadow-sm"
                   : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground"
@@ -285,7 +310,7 @@ export default function Events() {
                         </div>
                         <div className="flex items-center gap-2">
                           <div className="text-right">
-                            {event.isDiscountApplied && (
+                            {event.isDiscountApplied && event.originalPrepayment && (
                               <div className="text-muted-foreground text-xs line-through">
                                 Prepayment: {event.originalPrepayment}
                               </div>

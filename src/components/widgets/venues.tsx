@@ -40,6 +40,44 @@ const cardVariants = {
   },
 };
 
+const venues = [
+  {
+    name: "Barbarea",
+    espresso: "3.50€",
+    type: "Restaurant",
+    desc: "Organic sourdough pizza & natural wine",
+    image: "/barbarea.jpg",
+  },
+  {
+    name: "Pudel Bar",
+    espresso: "3.00€",
+    type: "Bar",
+    desc: "Craft beer haven in Telliskivi",
+    image: "/barbarea.jpg",
+  },
+  {
+    name: "NoKu",
+    espresso: "2.50€",
+    type: "Culture Club",
+    desc: "Hidden gem in Old Town",
+    image: "/barbarea.jpg",
+  },
+  {
+    name: "Spaces & Levier",
+    espresso: "4.00€",
+    type: "Coworking & Cafe",
+    desc: "Productive vibes in Rotermanni",
+    image: "/barbarea.jpg",
+  },
+  {
+    name: "Whisper Sister",
+    espresso: "5.00€",
+    type: "Cocktail Bar",
+    desc: "Secret speakeasy experience",
+    image: "/barbarea.jpg",
+  },
+];
+
 export default function Venues() {
   const [expanded, setExpanded] = useState(false);
 
@@ -48,7 +86,7 @@ export default function Venues() {
   };
 
   return (
-    <div className="flex flex-col gap-2 border-2 overflow-auto rounded-md [::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="flex flex-col gap-2 border-2 overflow-auto rounded-2xl [::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
       <div className="sticky left-0 flex justify-between">
         <h1 className="flex items-center gap-2 text-2xl font-bold p-2">
           <Building className="size-6" />
@@ -83,9 +121,9 @@ export default function Venues() {
         }}
       >
         <AnimatePresence mode="popLayout">
-          {Array.from({ length: 5 }).map((_, index) => (
+          {venues.map((venue, index) => (
             <motion.div
-              key={index}
+              key={venue.name}
               layout
               variants={cardVariants}
               initial="collapsed"
@@ -98,17 +136,17 @@ export default function Venues() {
                 },
               }}
             >
-              <Card className="relative py-2 rounded-lg shrink-0 overflow-hidden">
-                <CardContent className="group flex items-center justify-center px-2 rounded-md">
-                  <CardDescription className="absolute inset-0 grid place-items-center rounded-md bg-card/50 backdrop-blur-sm text-xl font-bold text-card-foreground hover:bg-transparent hover:backdrop-blur-none">
-                    <span className="hidden hover:text-primary group-hover:block">
-                      Barbarea
-                    </span>
+              <Card className="relative py-2 rounded-lg shrink-0 overflow-hidden w-[160px]">
+                <CardContent className="group flex items-center justify-center px-2 rounded-md h-[160px]">
+                  <CardDescription className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1 rounded-md bg-black/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-white p-2 text-center">
+                    <span className="text-lg font-bold">{venue.name}</span>
+                    <span className="text-xs font-medium bg-primary/20 px-2 py-0.5 rounded-full">{venue.type}</span>
+                    <span className="text-xs">Espresso: {venue.espresso}</span>
                   </CardDescription>
                   <Image
-                    className="rounded-sm shrink-0 group-hover:opacity-0 backdrop-blur-sm transition-all duration-200"
-                    src="/barbarea.jpg"
-                    alt="Barbarea"
+                    className="rounded-sm shrink-0 object-cover h-full w-full"
+                    src={venue.image}
+                    alt={venue.name}
                     width={144}
                     height={144}
                   />

@@ -73,6 +73,8 @@ Write code that is **accessible, performant, type-safe, and maintainable**. Focu
 - Use early returns to reduce nesting
 - Prefer simple conditionals over nested ternary operators
 - Group related code together and separate concerns
+- Create functions under the functions folder with related named files
+- Create types under types folder
 
 ### Security
 
