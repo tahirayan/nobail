@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bunx ultracite check:*)",
+      "Bash(bunx ultracite fix:*)",
+      "Bash(bunx biome check:*)"
+    ]
+  }
+}

@@ -197,8 +197,8 @@ export default function Events() {
   });
 
   return (
-    <Card className="border-2 py-2">
-      <CardHeader className="px-2">
+    <Card className="border-2">
+      <CardHeader>
         <CardTitle className="flex items-center gap-2 font-semibold text-xl">
           <Search className="size-6 text-foreground" />
           <span>Discover</span>
@@ -207,7 +207,7 @@ export default function Events() {
           Exclusive networking events for tech professionals
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4 px-2">
+      <CardContent className="flex flex-col gap-4">
         {/* Day Filter Segmented Control */}
         <div className="flex items-center justify-center overflow-x-auto rounded-md border-2 bg-secondary/30 p-1">
           {dayFilters.map((day) => (
@@ -316,7 +316,10 @@ export default function Events() {
                           <span
                             className="absolute bottom-0 left-0 h-full bg-primary transition-all"
                             style={{
-                              width: `${(event.spots.current / event.spots.total) * percentageMultiplier}%`,
+                              width: `${
+                                (event.spots.current / event.spots.total) *
+                                percentageMultiplier
+                              }%`,
                             }}
                           />
                         </div>
@@ -366,7 +369,11 @@ export default function Events() {
                         <span
                           className="absolute bottom-0 left-0 h-full bg-primary transition-all"
                           style={{
-                            width: `${(relatedEvent.spots.current / relatedEvent.spots.total) * percentageMultiplier}%`,
+                            width: `${
+                              (relatedEvent.spots.current /
+                                relatedEvent.spots.total) *
+                              percentageMultiplier
+                            }%`,
                           }}
                         />
                       </div>

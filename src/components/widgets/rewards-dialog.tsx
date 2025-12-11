@@ -135,7 +135,9 @@ const RewardCard = ({ reward }: { reward: Reward }) => {
         <span className="flex items-center gap-1">
           <Calendar className="size-3" />
           {reward.isRedeemed
-            ? `Redeemed ${new Date(reward.redeemedAt || "").toLocaleDateString()}`
+            ? `Redeemed ${new Date(
+                reward.redeemedAt || ""
+              ).toLocaleDateString()}`
             : `Expires ${new Date(reward.expiresAt).toLocaleDateString()}`}
         </span>
       </div>
@@ -268,7 +270,7 @@ export const RewardsDialog = ({
                   <RewardCard key={reward.id} reward={reward} />
                 ))
               ) : (
-                <div className="flex flex-col items-center gap-2 py-8 text-center">
+                <div className="flex flex-col items-center gap-2 py-4 text-center">
                   <Gift className="size-12 text-muted-foreground/50" />
                   <p className="text-muted-foreground text-sm">
                     No available rewards yet
@@ -286,7 +288,7 @@ export const RewardsDialog = ({
                   <RewardCard key={reward.id} reward={reward} />
                 ))
               ) : (
-                <div className="flex flex-col items-center gap-2 py-8 text-center">
+                <div className="flex flex-col items-center gap-2 py-4 text-center">
                   <CheckCircle className="size-12 text-muted-foreground/50" />
                   <p className="text-muted-foreground text-sm">
                     No redeemed rewards yet
@@ -301,7 +303,7 @@ export const RewardsDialog = ({
                   <RewardCard key={reward.id} reward={reward} />
                 ))
               ) : (
-                <div className="flex flex-col items-center gap-2 py-8 text-center">
+                <div className="flex flex-col items-center gap-2 py-4 text-center">
                   <Clock className="size-12 text-muted-foreground/50" />
                   <p className="text-muted-foreground text-sm">
                     No expired rewards

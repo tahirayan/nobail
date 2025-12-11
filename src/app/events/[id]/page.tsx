@@ -469,7 +469,7 @@ export default function EventDetailPage() {
   };
 
   return (
-    <div className="container grid place-items-center px-4 py-6">
+    <div className="grid w-full max-w-7xl place-items-center px-4 py-6">
       <div className="flex w-full max-w-5xl flex-col gap-6">
         {/* Back Button */}
         <Button asChild className="w-fit gap-2" variant="ghost">
@@ -487,7 +487,7 @@ export default function EventDetailPage() {
               <CardHeader>
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex flex-col gap-2">
-                    {event.isDiscountApplied && (
+                    {event.isDiscountApplied ? (
                       <Badge
                         className={cn(
                           "w-fit",
@@ -501,7 +501,7 @@ export default function EventDetailPage() {
                           ? "No bookings yet!"
                           : `${event.discountAmount} discount!`}
                       </Badge>
-                    )}
+                    ) : null}
                     <CardTitle className="text-2xl">{event.title}</CardTitle>
                     <CardDescription className="flex flex-wrap items-center gap-2">
                       <span className="flex items-center gap-1">
@@ -532,8 +532,8 @@ export default function EventDetailPage() {
               </CardHeader>
               <CardContent className="flex flex-col gap-6">
                 {/* Video if available */}
-                {event.videoUrl && (
-                  <div className="flex items-center gap-4 rounded-lg bg-muted/50 p-4">
+                {event.videoUrl ? (
+                  <div className="flex items-center justify-between gap-4 rounded-lg bg-muted/50 p-4">
                     <Video className="size-8 text-muted-foreground" />
                     <div className="flex flex-col gap-1">
                       <span className="font-medium text-sm">
@@ -543,12 +543,7 @@ export default function EventDetailPage() {
                         Watch to learn more about the venue and meetup
                       </span>
                     </div>
-                    <Button
-                      asChild
-                      className="ml-auto"
-                      size="sm"
-                      variant="outline"
-                    >
+                    <Button asChild size="sm" variant="outline">
                       <a
                         href={event.videoUrl}
                         rel="noopener noreferrer"
@@ -558,7 +553,7 @@ export default function EventDetailPage() {
                       </a>
                     </Button>
                   </div>
-                )}
+                ) : null}
 
                 {/* Description */}
                 <div className="flex flex-col gap-2">
@@ -588,11 +583,11 @@ export default function EventDetailPage() {
                       <p className="text-muted-foreground text-sm">
                         {event.venue.name} · {event.venue.region}
                       </p>
-                      {event.venue.address && (
+                      {event.venue.address ? (
                         <p className="text-muted-foreground text-xs">
                           {event.venue.address}
                         </p>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -616,7 +611,7 @@ export default function EventDetailPage() {
                 </div>
 
                 {/* Reservation Info (shown after booking) */}
-                {hasReserved && (
+                {hasReserved ? (
                   <>
                     <Separator />
                     <div className="flex flex-col gap-4 rounded-lg border-2 border-green-200 bg-green-50 p-4">
@@ -625,7 +620,7 @@ export default function EventDetailPage() {
                         Your Reservation
                       </h3>
                       <div className="grid gap-3 sm:grid-cols-2">
-                        {event.doorCode && (
+                        {event.doorCode ? (
                           <div className="flex items-start gap-3">
                             <DoorOpen className="size-5 translate-y-0.5 text-green-700" />
                             <div>
@@ -637,8 +632,8 @@ export default function EventDetailPage() {
                               </p>
                             </div>
                           </div>
-                        )}
-                        {event.directions && (
+                        ) : null}
+                        {event.directions ? (
                           <div className="flex items-start gap-3">
                             <Navigation className="size-5 translate-y-0.5 text-green-700" />
                             <div>
@@ -650,9 +645,9 @@ export default function EventDetailPage() {
                               </p>
                             </div>
                           </div>
-                        )}
+                        ) : null}
                       </div>
-                      {event.whatsappLink && (
+                      {event.whatsappLink ? (
                         <Button
                           asChild
                           className="w-fit gap-2"
@@ -668,15 +663,15 @@ export default function EventDetailPage() {
                             Join WhatsApp Group
                           </a>
                         </Button>
-                      )}
+                      ) : null}
                     </div>
                   </>
-                )}
+                ) : null}
               </CardContent>
             </Card>
 
             {/* Attendees Section */}
-            {event.attendees && event.attendees.length > 0 && (
+            {(event.attendees?.length ?? 0) > 0 ? (
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 text-lg">
@@ -707,7 +702,7 @@ export default function EventDetailPage() {
                         )
                       </TabsTrigger>
                     </TabsList>
-                    <TabsContent className="mt-0" value="all">
+                    <TabsContent value="all">
                       <div className="grid gap-4 sm:grid-cols-2">
                         {event.attendees.map((attendee, idx) => (
                           <AttendeeCard
@@ -718,7 +713,7 @@ export default function EventDetailPage() {
                         ))}
                       </div>
                     </TabsContent>
-                    <TabsContent className="mt-0" value="answered">
+                    <TabsContent value="answered">
                       <div className="grid gap-4 sm:grid-cols-2">
                         {event.attendees
                           .filter((a) => a.publicAnswers.length > 0)
@@ -734,12 +729,12 @@ export default function EventDetailPage() {
                   </Tabs>
                 </CardContent>
               </Card>
-            )}
+            ) : null}
 
             {/* Bail Mode (shown after reservation) */}
-            {hasReserved && (
+            {hasReserved ? (
               <BailMode eventId={event.id} eventTitle={event.title} />
-            )}
+            ) : null}
           </div>
 
           {/* Sidebar */}
@@ -774,11 +769,11 @@ export default function EventDetailPage() {
                       Prepayment
                     </span>
                     <div className="flex items-center gap-2">
-                      {event.isDiscountApplied && event.originalPrepayment && (
+                      {event.isDiscountApplied && event.originalPrepayment ? (
                         <span className="text-muted-foreground text-sm line-through">
                           {event.originalPrepayment}
                         </span>
-                      )}
+                      ) : null}
                       <span className="font-bold text-xl">
                         {event.prepayment}
                       </span>
@@ -792,14 +787,14 @@ export default function EventDetailPage() {
                       {event.credit}
                     </span>
                   </div>
-                  {event.isDiscountApplied && (
+                  {event.isDiscountApplied ? (
                     <Badge
                       className="w-fit bg-green-100 text-green-700"
                       variant="outline"
                     >
                       {event.discountAmount} discount applied!
                     </Badge>
-                  )}
+                  ) : null}
                 </div>
 
                 <Separator />
@@ -829,11 +824,11 @@ export default function EventDetailPage() {
                 )}
 
                 {/* Pickup Notice */}
-                {event.pickupAvailable && !hasReserved && (
+                {event.pickupAvailable && !hasReserved ? (
                   <p className="text-center text-muted-foreground text-xs">
                     Free pickup available within Tallinn
                   </p>
-                )}
+                ) : null}
               </CardContent>
             </Card>
 
@@ -853,23 +848,23 @@ export default function EventDetailPage() {
                     <p className="text-muted-foreground text-sm">
                       {event.venue.region}
                     </p>
-                    {event.venue.address && (
+                    {event.venue.address ? (
                       <p className="text-muted-foreground text-xs">
                         {event.venue.address}
                       </p>
-                    )}
+                    ) : null}
                   </div>
                 </div>
-                {event.venue.type && (
+                {event.venue.type ? (
                   <Badge className="w-fit" variant="outline">
                     {event.venue.type}
                   </Badge>
-                )}
-                {event.venue.espressoPrice && (
+                ) : null}
+                {event.venue.espressoPrice ? (
                   <p className="text-muted-foreground text-xs">
                     Espresso: {event.venue.espressoPrice}
                   </p>
-                )}
+                ) : null}
               </CardContent>
             </Card>
           </div>

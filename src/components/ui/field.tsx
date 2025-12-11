@@ -1,10 +1,11 @@
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
+import type * as React from "react";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
-function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
+function _FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
   return (
     <fieldset
       className={cn(
@@ -18,7 +19,7 @@ function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
   );
 }
 
-function FieldLegend({
+function _FieldLegend({
   className,
   variant = "legend",
   ...props
@@ -38,7 +39,7 @@ function FieldLegend({
   );
 }
 
-function FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
+function _FieldGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
@@ -75,7 +76,7 @@ const fieldVariants = cva(
   }
 );
 
-function Field({
+function _Field({
   className,
   orientation = "vertical",
   ...props
@@ -91,7 +92,7 @@ function Field({
   );
 }
 
-function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
+function _FieldContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
@@ -104,7 +105,7 @@ function FieldContent({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function FieldLabel({
+function _FieldLabel({
   className,
   ...props
 }: React.ComponentProps<typeof Label>) {
@@ -122,7 +123,7 @@ function FieldLabel({
   );
 }
 
-function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
+function _FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
@@ -135,7 +136,7 @@ function FieldTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
+function _FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
       className={cn(
@@ -150,7 +151,7 @@ function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
   );
 }
 
-function FieldSeparator({
+function _FieldSeparator({
   children,
   className,
   ...props
@@ -221,14 +222,14 @@ function FieldError({
 }
 
 export {
-  Field,
-  FieldLabel,
-  FieldDescription,
+  _Field as Field,
+  _FieldLabel as FieldLabel,
+  _FieldDescription as FieldDescription,
   FieldError,
-  FieldGroup,
-  FieldLegend,
-  FieldSeparator,
-  FieldSet,
-  FieldContent,
-  FieldTitle,
+  _FieldGroup as FieldGroup,
+  _FieldLegend as FieldLegend,
+  _FieldSeparator as FieldSeparator,
+  _FieldSet as FieldSet,
+  _FieldContent as FieldContent,
+  _FieldTitle as FieldTitle,
 };

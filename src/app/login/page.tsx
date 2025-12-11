@@ -2,7 +2,7 @@
 
 import { LogIn } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/auth-context";
@@ -13,8 +13,14 @@ export default function LoginPage() {
   const router = useRouter();
 
   // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push("/dashboard");
+    }
+  }, [isAuthenticated, router]);
+
+  // Show nothing while redirecting
   if (isAuthenticated) {
-    router.push("/dashboard");
     return null;
   }
 
@@ -28,7 +34,7 @@ export default function LoginPage() {
 
   return (
     <div className="grid flex-grow place-items-center bg-background font-sans text-foreground selection:bg-primary/10 selection:text-primary">
-      <div className="relative mx-auto grid w-full max-w-md gap-8 overflow-hidden rounded-[2.5rem] border border-border/40 bg-gradient-to-b from-card to-background p-10 shadow-2xl shadow-primary/5">
+      <div className="relative grid w-full max-w-md gap-4 overflow-hidden rounded-[2.5rem] border border-border/40 bg-gradient-to-b from-card to-background p-10 shadow-2xl shadow-primary/5">
         <div className="pointer-events-none absolute top-0 right-0 p-8 opacity-[0.03]">
           <LogIn className="size-40 rotate-12 text-foreground" />
         </div>

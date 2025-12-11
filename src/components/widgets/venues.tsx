@@ -88,7 +88,7 @@ export default function Venues() {
   return (
     <div className="flex flex-col gap-2 overflow-auto rounded-2xl border-2 [-ms-overflow-style:none] [scrollbar-width:none] [::-webkit-scrollbar]:hidden">
       <div className="sticky left-0 flex justify-between">
-        <h1 className="flex items-center gap-2 p-2 font-bold text-2xl">
+        <h1 className="flex items-center gap-2 p-4 font-bold text-2xl">
           <Building className="size-6" />
           <span>Venues</span>
         </h1>
@@ -108,7 +108,7 @@ export default function Venues() {
       </div>
       <motion.div
         animate={expanded ? "expanded" : "collapsed"}
-        className={cn("flex gap-2 p-2", expanded ? "flex-wrap" : "")}
+        className={cn("flex gap-4 p-4", expanded ? "flex-wrap" : "")}
         initial="collapsed"
         layout
         transition={{
@@ -121,7 +121,7 @@ export default function Venues() {
         variants={containerVariants}
       >
         <AnimatePresence mode="popLayout">
-          {venues.map((venue, index) => (
+          {venues.map((venue, _index) => (
             <motion.div
               animate={expanded ? "expanded" : "collapsed"}
               initial="collapsed"

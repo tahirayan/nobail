@@ -1,6 +1,5 @@
 "use client";
 
-import { Ticket } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/auth-context";
@@ -16,11 +15,11 @@ export default function Header() {
       <div className="container flex items-center justify-between gap-4 py-2">
         {/* Logo */}
         <Link href={isAuthenticated ? "/dashboard" : "/"}>
-            <div className="flex size-14 cursor-pointer items-center justify-center bg-primary p-2 transition-opacity hover:opacity-90">
-              <div className="flex size-10 items-center justify-center border-2 border-white">
-                <h1 className="font-bold text-[10px] text-white">NoBail</h1>
-              </div>
+          <div className="flex size-14 cursor-pointer items-center justify-center bg-primary p-2 transition-opacity hover:opacity-90">
+            <div className="flex size-10 items-center justify-center border-2 border-white">
+              <h1 className="font-bold text-[10px] text-white">NoBail</h1>
             </div>
+          </div>
         </Link>
 
         {/* Center: Streak Progress (only when authenticated) */}

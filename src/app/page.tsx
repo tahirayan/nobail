@@ -28,9 +28,9 @@ export default function Home() {
   }, [isAuthenticated, router]);
 
   return (
-    <main className="container grid grow place-items-center gap-20 py-16">
+    <main className="grid w-full max-w-7xl place-items-center gap-20 px-4 py-16">
       {/* Hero Section */}
-      <section className="flex w-full flex-col items-center gap-8 justify-self-center text-center md:w-2/3">
+      <section className="flex w-full flex-col items-center gap-4 justify-self-center text-center md:w-2/3">
         <div className="grid place-items-center gap-2">
           <div className="flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 font-bold text-primary text-xs uppercase tracking-widest shadow-sm">
             <Ticket className="size-3" />
@@ -48,7 +48,7 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link
-            className="flex h-12 items-center justify-center rounded-full bg-primary px-8 font-semibold text-base text-white shadow-lg shadow-primary/20 transition-transform hover:scale-105 active:scale-95"
+            className="flex h-12 items-center justify-center rounded-full bg-primary px-4 font-semibold text-base text-white shadow-lg shadow-primary/20 transition-transform hover:scale-105 active:scale-95"
             href="/login"
           >
             Log in to see meetups
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* Bento Grid Section */}
-      <section className="grid w-full gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <BentoCard
           gradient="bg-gradient-to-br from-blue-500 to-indigo-600"
           shadowColor="shadow-blue-500/20"
@@ -93,7 +93,7 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="mt-auto w-full pt-4">
+          <div className="flex w-full flex-1 flex-col justify-end pt-4">
             <div className="flex flex-col gap-2 text-center">
               <h3 className="font-bold text-xl">Log in</h3>
               <p className="text-muted-foreground text-sm">
@@ -119,7 +119,7 @@ export default function Home() {
               Prepay
             </div>
           </div>
-          <div className="z-10 mt-auto w-full pt-4">
+          <div className="z-10 flex w-full flex-1 flex-col justify-end pt-4">
             <div className="flex flex-col gap-2 text-center">
               <h3 className="font-bold text-xl">Reserve a Spot</h3>
               <p className="text-muted-foreground text-sm">
@@ -154,7 +154,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-auto w-full pt-4">
+          <div className="flex w-full flex-1 flex-col justify-end pt-4">
             <div className="flex flex-col gap-2 text-center">
               <h3 className="font-bold text-xl">First-time visit</h3>
               <p className="text-muted-foreground text-sm">
@@ -196,7 +196,7 @@ export default function Home() {
           >
             Give away spot
           </Button>
-          <div className="mt-auto w-full pt-4">
+          <div className="flex w-full flex-1 flex-col justify-end pt-4">
             <div className="flex flex-col gap-2 text-center">
               <h3 className="font-bold text-xl">Gotta bail?</h3>
               <p className="text-muted-foreground text-sm">

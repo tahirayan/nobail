@@ -31,7 +31,7 @@ export default function PersonalInfo() {
   };
 
   return (
-    <Card className="sticky top-24 flex h-[calc(100vh-2rem)] flex-col border-2">
+    <Card className="sticky top-22.25 flex h-[calc(100vh-6.5rem)] flex-col border-2">
       <CardHeader className="flex flex-col gap-4">
         <CardTitle className="flex items-center gap-2 font-bold text-4xl">
           <HostAvatar name="Hamza Khan" size="md" />
@@ -174,10 +174,7 @@ export default function PersonalInfo() {
         </div>
         <div className="flex min-h-0 flex-1 flex-col gap-2">
           <h3 className="font-semibold">Q&A Profile</h3>
-          <Tabs
-            className="flex min-h-0 flex-1 flex-col gap-2"
-            defaultValue="public"
-          >
+          <Tabs className="flex min-h-0 flex-col gap-2" defaultValue="public">
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="public">Public</TabsTrigger>
               <TabsTrigger value="social">Social</TabsTrigger>

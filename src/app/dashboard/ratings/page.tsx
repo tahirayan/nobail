@@ -76,7 +76,9 @@ const StarRating = ({
     <div className="flex gap-0.5">
       {[1, 2, 3, 4, 5].map((star) => (
         <Star
-          className={`${sizeClass} ${star <= rating ? "fill-yellow-400 text-yellow-400" : "text-gray-200"}`}
+          className={`${sizeClass} ${
+            star <= rating ? "fill-yellow-400 text-yellow-400" : "text-gray-200"
+          }`}
           key={star}
         />
       ))}
@@ -114,12 +116,12 @@ const RatingCard = ({ rating }: { rating: Rating }) => (
         </div>
       </div>
 
-      {rating.comment && (
+      {rating.comment ? (
         <div className="flex gap-2 rounded-lg bg-muted/50 p-3">
           <MessageSquare className="size-4 shrink-0 text-muted-foreground" />
           <p className="text-sm">{rating.comment}</p>
         </div>
-      )}
+      ) : null}
     </CardContent>
   </Card>
 );
@@ -247,7 +249,7 @@ export default function RatingsPage() {
 
       {/* Info */}
       <Card className="border-dashed">
-        <CardContent className="flex flex-col items-center gap-4 py-8 text-center">
+        <CardContent className="flex flex-col items-center gap-4 py-4 text-center">
           <Badge variant="secondary">Why Rate?</Badge>
           <p className="max-w-md text-muted-foreground text-sm">
             Your ratings help us understand your preferences. When you earn a

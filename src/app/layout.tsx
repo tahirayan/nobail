@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <Header />
-          <div className="flex-grow">{children}</div>
+          <div className="grid grow place-items-center">{children}</div>
           <Footer />
         </AuthProvider>
       </body>

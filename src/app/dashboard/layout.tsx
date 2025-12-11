@@ -25,11 +25,9 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="grid flex-grow place-items-center py-4">
-      <div className="container grid grid-cols-1 items-start gap-4 lg:grid-cols-[24rem_minmax(0,1fr)]">
-        <PersonalInfo />
-        {children}
-      </div>
+    <div className="container grid w-full grid-cols-1 items-start gap-8 py-4 lg:grid-cols-[24rem_minmax(0,100%)]">
+      <PersonalInfo />
+      {children}
     </div>
   );
 }

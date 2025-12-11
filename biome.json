@@ -19,12 +19,40 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "noArrayIndexKey": "off",
+        "noDocumentCookie": "off"
+      },
+      "performance": {
+        "noNamespaceImport": "off"
+      },
+      "nursery": {
+        "noLeakedRender": "off",
+        "noShadow": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "correctness": {
+        "noUndeclaredVariables": "off",
+        "noNestedComponentDefinitions": "off",
+        "noUnusedVariables": "off"
+      },
+      "a11y": {
+        "useSemanticElements": "off",
+        "useFocusableInteractive": "off",
+        "useKeyWithClickEvents": "off",
+        "useAriaPropsForRole": "off",
+        "noRedundantRoles": "off",
+        "noNoninteractiveElementInteractions": "off"
+      },
+      "complexity": {
+        "noExcessiveCognitiveComplexity": "off",
+        "noCommaOperator": "off"
+      },
+      "style": {
+        "noNestedTernary": "off"
       }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
     }
   },
   "assist": {

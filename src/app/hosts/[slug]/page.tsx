@@ -291,7 +291,7 @@ export default function HostProfilePage() {
   });
 
   return (
-    <div className="container grid place-items-center px-4 py-6">
+    <div className="grid w-full max-w-7xl place-items-center px-4 py-6">
       <div className="flex w-full max-w-4xl flex-col gap-6">
         {/* Back Button */}
         <Button asChild className="w-fit gap-2" variant="ghost">

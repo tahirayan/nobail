@@ -84,12 +84,34 @@ const getRewardTypeIcon = (type: Reward["type"]) => {
       return "🍺";
     case "experience":
       return "✨";
+    default:
+      return "🎁";
   }
 };
 
 const RewardCard = ({ reward }: { reward: Reward }) => {
   const isExpired = new Date(reward.expiresAt) < new Date();
   const isAvailable = !(reward.isRedeemed || isExpired);
+
+  const getBadgeVariant = () => {
+    if (isAvailable) {
+      return "default";
+    }
+    if (reward.isRedeemed) {
+      return "secondary";
+    }
+    return "outline";
+  };
+
+  const getDateLabel = () => {
+    if (reward.isRedeemed) {
+      return `Redeemed ${new Date(reward.redeemedAt || "").toLocaleDateString()}`;
+    }
+    if (isExpired) {
+      return `Expired ${new Date(reward.expiresAt).toLocaleDateString()}`;
+    }
+    return `Expires ${new Date(reward.expiresAt).toLocaleDateString()}`;
+  };
 
   return (
     <Card className={isAvailable ? "" : "opacity-60"}>
@@ -102,17 +124,7 @@ const RewardCard = ({ reward }: { reward: Reward }) => {
               <CardDescription>{reward.description}</CardDescription>
             </div>
           </div>
-          <Badge
-            variant={
-              isAvailable
-                ? "default"
-                : reward.isRedeemed
-                  ? "secondary"
-                  : "outline"
-            }
-          >
-            {reward.value}
-          </Badge>
+          <Badge variant={getBadgeVariant()}>{reward.value}</Badge>
         </div>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
@@ -123,11 +135,7 @@ const RewardCard = ({ reward }: { reward: Reward }) => {
           </span>
           <span className="flex items-center gap-1.5">
             <Calendar className="size-4" />
-            {reward.isRedeemed
-              ? `Redeemed ${new Date(reward.redeemedAt || "").toLocaleDateString()}`
-              : isExpired
-                ? `Expired ${new Date(reward.expiresAt).toLocaleDateString()}`
-                : `Expires ${new Date(reward.expiresAt).toLocaleDateString()}`}
+            {getDateLabel()}
           </span>
         </div>
 

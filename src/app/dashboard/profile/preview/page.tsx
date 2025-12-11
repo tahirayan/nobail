@@ -74,13 +74,13 @@ function PreviewContent() {
         </TabsTrigger>
       </TabsList>
 
-      <TabsContent className="mt-0" value="public">
+      <TabsContent value="public">
         <ProfileView mode="public" />
       </TabsContent>
-      <TabsContent className="mt-0" value="social">
+      <TabsContent value="social">
         <ProfileView mode="social" />
       </TabsContent>
-      <TabsContent className="mt-0" value="after-meet">
+      <TabsContent value="after-meet">
         <ProfileView mode="after-meet" />
       </TabsContent>
     </Tabs>
@@ -89,7 +89,7 @@ function PreviewContent() {
 
 export default function PreviewProfilePage() {
   return (
-    <div className="container mx-auto max-w-4xl py-8">
+    <div className="container max-w-4xl py-4">
       <div className="flex flex-col gap-6">
         <div className="flex items-center justify-between">
           <h1 className="font-bold text-3xl">Profile Preview</h1>
@@ -136,7 +136,7 @@ function ProfileView({ mode }: { mode: "public" | "social" | "after-meet" }) {
               <Verified className="size-6 text-blue-500" />
             </CardTitle>
           </div>
-          {isPublicMode && (
+          {isPublicMode ? (
             <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
               <Badge
                 className="px-4 py-2 text-lg shadow-lg"
@@ -145,7 +145,7 @@ function ProfileView({ mode }: { mode: "public" | "social" | "after-meet" }) {
                 Identity Hidden
               </Badge>
             </div>
-          )}
+          ) : null}
 
           <div
             className={`flex gap-2 ${isPublicMode ? "opacity-50 blur-sm" : ""}`}
