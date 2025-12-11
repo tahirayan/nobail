@@ -54,7 +54,7 @@ export default function Home() {
           <div className="flex items-center justify-center">
             <div className="relative grid aspect-square w-full max-w-md place-items-center bg-gradient-to-br from-primary/5 to-primary/10 p-8">
               <div className="absolute inset-0 grid grid-cols-2 gap-2 p-4 opacity-60">
-                {[...Array(4)].map((_, i) => (
+                {[...new Array(4)].map((_, i) => (
                   <div
                     className="border border-primary/20 bg-background/40"
                     key={i}

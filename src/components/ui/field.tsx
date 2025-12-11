@@ -2,6 +2,7 @@
 
 import { cva, type VariantProps } from "class-variance-authority";
 import type * as React from "react";
+import { useMemo } from "react";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
@@ -160,15 +161,15 @@ function _FieldSeparator({
 }) {
   return (
     <div
-      className={cn(
-        "relative h-5 text-sm",
-        className
-      )}
+      className={cn("relative h-5 text-sm", className)}
       data-content={!!children}
       data-slot="field-separator"
       {...props}
     >
-
+      {children}
+    </div>
+  );
+}
 
 function FieldError({
   className,
@@ -191,7 +192,7 @@ function FieldError({
       ...new Map(errors.map((error) => [error?.message, error])).values(),
     ];
 
-    if (uniqueErrors?.length == 1) {
+    if (uniqueErrors?.length === 1) {
       return uniqueErrors[0]?.message;
     }
 

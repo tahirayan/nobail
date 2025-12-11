@@ -40,13 +40,18 @@ export default function PersonalInfo() {
         </CardTitle>
 
         <div className="flex gap-2">
-          <Link href="https://www.linkedin.com/in/khanhamzaaa/" target="_blank">
+          <Link
+            href="https://www.linkedin.com/in/khanhamzaaa/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Badge className="gap-1" variant="secondary">
               <Linkedin className="size-3" /> LinkedIn
             </Badge>
           </Link>
           <Link
             href="https://www.instagram.com/stories/m.hamzakkk/"
+            rel="noopener noreferrer"
             target="_blank"
           >
             <Badge className="gap-1" variant="secondary">
