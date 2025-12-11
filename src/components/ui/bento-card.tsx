@@ -1,31 +1,35 @@
 import { cn } from "@/lib/utils";
 
 interface BentoCardProps extends React.ComponentProps<"div"> {
-  gradient: string;
-  shadowColor: string;
+  gradientType?: "blue" | "orange" | "purple" | "green";
   children: React.ReactNode;
 }
 
 export function BentoCard({
-  gradient,
-  shadowColor,
+  gradientType = "blue",
   children,
   className,
   ...props
 }: BentoCardProps) {
+  const gradientClass = {
+    blue: "gradient-subtle-blue",
+    orange: "gradient-subtle-orange",
+    purple: "gradient-subtle-purple",
+    green: "gradient-subtle-green",
+  }[gradientType];
+
   return (
     <div
       className={cn(
-        "relative aspect-square w-full rounded-2xl p-2 shadow-xl transition-transform group-hover:scale-105 sm:min-w-3xs",
-        gradient,
-        shadowColor,
+        "relative min-h-[320px] w-full p-6 sm:min-w-3xs",
+        "border border-border/40",
+        "flex flex-col items-center justify-between gap-4",
+        gradientClass,
         className
       )}
       {...props}
     >
-      <div className="relative flex h-full flex-col items-center justify-center gap-2 overflow-hidden rounded-lg border border-white bg-white/95 p-4 shadow">
-        {children}
-      </div>
+      {children}
     </div>
   );
 }

@@ -209,7 +209,7 @@ export default function Events() {
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {/* Day Filter Segmented Control */}
-        <div className="flex items-center justify-center overflow-x-auto rounded-md border bg-secondary/30 p-1">
+        <div className="flex items-center justify-center overflow-x-auto rounded border bg-secondary/30 p-1">
           {dayFilters.map((day) => (
             <button
               className={`flex-1 whitespace-nowrap rounded-sm px-3 py-2 font-medium text-sm transition-all duration-200 ${
@@ -234,16 +234,13 @@ export default function Events() {
               : null;
 
             return (
-              <div
-                className="relative rounded-md"
-                key={event.id}
-              >
+              <div className="relative" key={event.id}>
                 {/* Discount Flair */}
                 {event.isDiscountApplied && (
                   <div className="-top-2 absolute right-2 z-10">
                     <div
                       className={cn(
-                        "flex items-center gap-1 rounded-full px-2 py-1 font-medium text-white text-xs shadow-lg",
+                        "flex items-center gap-1 rounded px-2 py-1 font-medium text-white text-xs shadow-sm",
                         event.discountType === 0 ? "bg-red-400" : "bg-green-400"
                       )}
                     >
@@ -253,7 +250,7 @@ export default function Events() {
                     </div>
                   </div>
                 )}
-                <Card className="rounded-sm">
+                <Card>
                   <CardHeader>
                     <CardTitle>
                       <div className="flex justify-between gap-2">
@@ -309,7 +306,7 @@ export default function Events() {
                         )}
                       </div>
                       <div className="flex items-center justify-between gap-2">
-                        <div className="relative flex items-center justify-center gap-2 overflow-hidden rounded-2xl border border-primary bg-primary/24 px-2 py-1">
+                        <div className="relative flex items-center justify-center gap-2 overflow-hidden rounded border border-primary bg-primary/24 px-2 py-1">
                           <span className="z-10 font-medium text-sm text-white">
                             {event.spots.current} / {event.spots.total}
                           </span>

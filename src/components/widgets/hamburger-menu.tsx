@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  BarChart3,
-  Gift,
-  LogOut,
-  Menu,
-  Settings,
-  Star,
-  User,
-} from "lucide-react";
+import { BarChart3, LogOut, Menu, Settings, Star, User } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -23,7 +15,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useAuth } from "@/contexts/auth-context";
-import { RewardsDialog } from "./rewards-dialog";
 import { StreakProgress } from "./streak-progress";
 
 type MenuItem = {
@@ -34,13 +25,8 @@ type MenuItem = {
   variant?: "default" | "destructive";
 };
 
-type HamburgerMenuProps = {
-  onRewardsClick?: () => void;
-};
-
-export const HamburgerMenu = ({ onRewardsClick }: HamburgerMenuProps) => {
+export const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
-  const [showRewards, setShowRewards] = useState(false);
   const { logout } = useAuth();
   const router = useRouter();
 
@@ -74,14 +60,6 @@ export const HamburgerMenu = ({ onRewardsClick }: HamburgerMenuProps) => {
       icon: <Star className="size-4" />,
     },
     {
-      label: "Rewards",
-      icon: <Gift className="size-4" />,
-      onClick: () => {
-        setShowRewards(true);
-        onRewardsClick?.();
-      },
-    },
-    {
       label: "Settings",
       href: "/dashboard/settings",
       icon: <Settings className="size-4" />,
@@ -89,91 +67,76 @@ export const HamburgerMenu = ({ onRewardsClick }: HamburgerMenuProps) => {
   ];
 
   return (
-    <>
-      <Sheet onOpenChange={setOpen} open={open}>
-        <SheetTrigger asChild>
-          <Button
-            aria-label="Open menu"
-            className="size-9"
-            size="icon"
-            variant="ghost"
-          >
-            <Menu className="size-5" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent className="flex w-80 flex-col" side="right">
-          <SheetHeader>
-            <SheetTitle>Menu</SheetTitle>
-            <SheetDescription className="sr-only">
-              Navigation menu with profile, stats, ratings, rewards, and
-              settings
-            </SheetDescription>
-          </SheetHeader>
+    <Sheet onOpenChange={setOpen} open={open}>
+      <SheetTrigger asChild>
+        <Button
+          aria-label="Open menu"
+          className="size-9"
+          size="icon"
+          variant="ghost"
+        >
+          <Menu className="size-5" />
+        </Button>
+      </SheetTrigger>
+      <SheetContent className="flex w-80 flex-col" side="right">
+        <SheetHeader>
+          <SheetTitle>Menu</SheetTitle>
+          <SheetDescription className="sr-only">
+            Navigation menu with profile, stats, ratings, and settings
+          </SheetDescription>
+        </SheetHeader>
 
-          {/* Streak Progress */}
-          <div className="py-4">
-            <StreakProgress variant="full" />
-          </div>
+        {/* Streak Progress */}
+        <div className="py-4">
+          <StreakProgress variant="full" />
+        </div>
 
-          <Separator />
+        <Separator />
 
-          {/* Menu Items */}
-          <nav className="flex flex-1 flex-col gap-1 py-4">
-            {menuItems.map((item) =>
-              item.href ? (
-                <Button
-                  asChild
-                  className="justify-start gap-3"
-                  key={item.label}
-                  onClick={() => handleItemClick(item)}
-                  variant="ghost"
-                >
-                  <Link href={item.href}>
-                    {item.icon}
-                    {item.label}
-                  </Link>
-                </Button>
-              ) : (
-                <Button
-                  className="justify-start gap-3"
-                  key={item.label}
-                  onClick={() => handleItemClick(item)}
-                  variant="ghost"
-                >
+        {/* Menu Items */}
+        <nav className="flex flex-1 flex-col gap-1 py-4">
+          {menuItems.map((item) =>
+            item.href ? (
+              <Button
+                asChild
+                className="justify-start gap-3"
+                key={item.label}
+                onClick={() => handleItemClick(item)}
+                variant="ghost"
+              >
+                <Link href={item.href}>
                   {item.icon}
                   {item.label}
-                </Button>
-              )
-            )}
-          </nav>
+                </Link>
+              </Button>
+            ) : (
+              <Button
+                className="justify-start gap-3"
+                key={item.label}
+                onClick={() => handleItemClick(item)}
+                variant="ghost"
+              >
+                {item.icon}
+                {item.label}
+              </Button>
+            )
+          )}
+        </nav>
 
-          <Separator />
+        <Separator />
 
-          {/* Logout */}
-          <div className="py-4">
-            <Button
-              className="w-full justify-start gap-3 text-destructive hover:bg-destructive/10 hover:text-destructive"
-              onClick={handleLogout}
-              variant="ghost"
-            >
-              <LogOut className="size-4" />
-              Log out
-            </Button>
-          </div>
-        </SheetContent>
-      </Sheet>
-
-      {/* Rewards Dialog - controlled open state */}
-      {showRewards ? (
-        <RewardsDialog
-          defaultOpen={true}
-          onOpenChange={(isOpen) => {
-            if (!isOpen) {
-              setShowRewards(false);
-            }
-          }}
-        />
-      ) : null}
-    </>
+        {/* Logout */}
+        <div className="py-4">
+          <Button
+            className="w-full justify-start gap-3 text-destructive hover:bg-destructive/10 hover:text-destructive"
+            onClick={handleLogout}
+            variant="ghost"
+          >
+            <LogOut className="size-4" />
+            Log out
+          </Button>
+        </div>
+      </SheetContent>
+    </Sheet>
   );
 };

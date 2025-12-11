@@ -1,13 +1,36 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { Fragment_Mono, Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/widgets/footer";
 import Header from "@/components/widgets/header";
 import { AuthProvider } from "@/contexts/auth-context";
 
-const nunitoSans = Nunito({
-  variable: "--font-nunito-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+const interDisplay = Inter({
+  variable: "--font-inter-display",
+  subsets: ["latin"],
+  weight: ["600", "700", "800", "900"],
+  display: "block",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+});
+
+const fragmentMono = Fragment_Mono({
+  variable: "--font-fragment-mono",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.variable} flex min-h-screen flex-col antialiased`}
+        className={`${inter.variable} ${interDisplay.variable} ${spaceGrotesk.variable} ${fragmentMono.variable} flex min-h-screen flex-col antialiased`}
       >
         <AuthProvider>
           <Header />

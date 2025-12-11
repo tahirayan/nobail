@@ -194,19 +194,14 @@ export const RewardsDialog = ({
         {trigger || (
           <Button
             aria-label="View rewards"
-            className="gap-2"
+            className="relative gap-2"
             size="sm"
             variant="outline"
           >
             <Gift className="size-4" />
             <span className="hidden sm:inline">Rewards</span>
             {availableRewards.length > 0 && (
-              <Badge
-                className="size-5 rounded-full p-0 text-[10px]"
-                variant="destructive"
-              >
-                {availableRewards.length}
-              </Badge>
+              <span className="absolute top-1 right-1 size-2 rounded-full bg-primary" />
             )}
           </Button>
         )}

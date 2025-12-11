@@ -86,7 +86,7 @@ export default function Venues() {
   };
 
   return (
-    <div className="flex flex-col gap-2 bg-card overflow-auto rounded-2xl border [-ms-overflow-style:none] [scrollbar-width:none] [::-webkit-scrollbar]:hidden">
+    <div className="flex flex-col gap-2 overflow-auto rounded border bg-card [-ms-overflow-style:none] [scrollbar-width:none] [::-webkit-scrollbar]:hidden">
       <div className="sticky left-0 flex justify-between">
         <h1 className="flex items-center gap-2 p-4 font-bold text-2xl">
           <Building className="size-6" />
@@ -136,18 +136,18 @@ export default function Venues() {
               }}
               variants={cardVariants}
             >
-              <Card className="relative w-[160px] shrink-0 overflow-hidden rounded-lg py-2">
-                <CardContent className="group flex h-[160px] items-center justify-center rounded-md px-2">
-                  <CardDescription className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1 rounded-md bg-black/60 p-2 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <Card className="relative w-[160px] shrink-0 overflow-hidden py-2">
+                <CardContent className="group flex h-[160px] items-center justify-center px-2">
+                  <CardDescription className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-1 bg-black/60 p-2 text-center text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <span className="font-bold text-lg">{venue.name}</span>
-                    <span className="rounded-full bg-primary/20 px-2 py-0.5 font-medium text-xs">
+                    <span className="rounded bg-primary/20 px-2 py-0.5 font-medium text-xs">
                       {venue.type}
                     </span>
                     <span className="text-xs">Espresso: {venue.espresso}</span>
                   </CardDescription>
                   <Image
                     alt={venue.name}
-                    className="h-full w-full shrink-0 rounded-sm object-cover"
+                    className="h-full w-full shrink-0 object-cover"
                     height={144}
                     src={venue.image}
                     width={144}

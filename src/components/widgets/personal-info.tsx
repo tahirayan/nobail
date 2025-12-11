@@ -149,7 +149,7 @@ export default function PersonalInfo() {
         </div>
         {/* NoBail Prize Streak Section */}
         <div className="mx-auto flex w-full max-w-md flex-col items-center gap-2">
-          <div className="grid size-12 place-items-center rounded-full bg-green-100 text-green-600">
+          <div className="grid size-12 place-items-center border-2 border-green-300/40 bg-green-100/50 text-green-600">
             <Trophy className="size-6" />
           </div>
           <span className="font-bold text-gray-900 text-lg">
@@ -161,7 +161,7 @@ export default function PersonalInfo() {
           <div className="flex gap-1">
             {[1, 2, 3, 4, 5].map((i) => (
               <div
-                className={`size-1.5 rounded-full ${
+                className={`size-1.5 ${
                   i >= 3 ? "bg-gray-200" : "bg-green-500"
                 }`}
                 key={i}
@@ -180,7 +180,7 @@ export default function PersonalInfo() {
               <TabsTrigger value="social">Social</TabsTrigger>
               <TabsTrigger value="private">Private</TabsTrigger>
             </TabsList>
-            <div className="h-full w-full overflow-y-auto rounded-md border p-4">
+            <div className="h-full w-full overflow-y-auto rounded border p-4">
               <TabsContent className="mt-0 flex flex-col gap-4" value="public">
                 <div className="flex flex-col gap-1">
                   <p className="font-medium text-sm">
