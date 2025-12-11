@@ -361,7 +361,10 @@ function SidebarSeparator({
 }: React.ComponentProps<typeof Separator>) {
   return (
     <Separator
-      className={cn("w-[calc(100%-1rem)] self-center bg-sidebar-border", className)}
+      className={cn(
+        "w-[calc(100%-1rem)] self-center bg-sidebar-border",
+        className
+      )}
       data-sidebar="separator"
       data-slot="sidebar-separator"
       {...props}

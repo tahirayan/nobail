@@ -1,9 +1,7 @@
 "use client";
 
 import { cva, type VariantProps } from "class-variance-authority";
-import { useMemo } from "react";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
 function FieldSet({ className, ...props }: React.ComponentProps<"fieldset">) {
@@ -142,7 +140,7 @@ function FieldDescription({ className, ...props }: React.ComponentProps<"p">) {
     <p
       className={cn(
         "font-normal text-muted-foreground text-sm leading-normal group-has-[[data-orientation=horizontal]]/field:text-balance",
-        "nth-last-2:relative nth-last-2:-top-1 [[data-variant=legend]+&]:relative [[data-variant=legend]+&]:-top-1.5",
+        "nth-last-2:-top-1 [[data-variant=legend]+&]:-top-1.5 nth-last-2:relative [[data-variant=legend]+&]:relative",
         "[&>a:hover]:text-primary [&>a]:underline [&>a]:underline-offset-4",
         className
       )}
@@ -197,7 +195,7 @@ function FieldError({
     }
 
     return (
-      <ul className="flex flex-col gap-1 list-disc pl-4">
+      <ul className="flex list-disc flex-col gap-1 pl-4">
         {uniqueErrors.map(
           (error, index) =>
             error?.message && <li key={index}>{error.message}</li>

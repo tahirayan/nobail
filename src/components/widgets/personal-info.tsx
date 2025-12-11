@@ -3,14 +3,13 @@
 import { Edit, Eye, Instagram, Linkedin, Trophy, Verified } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { HostAvatar } from "@/components/widgets/host-avatar";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Label } from "../ui/label";
-import { Progress } from "../ui/progress";
 import { Switch } from "../ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-import { HostAvatar } from "@/components/widgets/host-avatar";
 
 type Interests = {
   comedy: boolean;
@@ -20,7 +19,6 @@ type Interests = {
 };
 
 export default function PersonalInfo() {
-  const [streak] = useState(40); // 2 out of 5 is 40%
   const [interests, setInterests] = useState<Interests>({
     comedy: true,
     poetry: false,
@@ -163,14 +161,14 @@ export default function PersonalInfo() {
           <div className="flex gap-1">
             {[1, 2, 3, 4, 5].map((i) => (
               <div
-                key={i}
                 className={`size-1.5 rounded-full ${
                   i >= 3 ? "bg-gray-200" : "bg-green-500"
                 }`}
+                key={i}
               />
             ))}
           </div>
-          <p className="text-center text-muted-foreground text-xs mt-1">
+          <p className="text-center text-muted-foreground text-xs">
             3 more to go or find someone to go for you
           </p>
         </div>
@@ -186,7 +184,7 @@ export default function PersonalInfo() {
               <TabsTrigger value="private">Private</TabsTrigger>
             </TabsList>
             <div className="h-full w-full overflow-y-auto rounded-md border p-4">
-              <TabsContent value="public" className="mt-0 flex flex-col gap-4">
+              <TabsContent className="mt-0 flex flex-col gap-4" value="public">
                 <div className="flex flex-col gap-1">
                   <p className="font-medium text-sm">
                     Most watched TV show last year?

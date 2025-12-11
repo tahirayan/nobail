@@ -240,7 +240,7 @@ export default function Events() {
               >
                 {/* Discount Flair */}
                 {event.isDiscountApplied && (
-                  <div className="left-2 -top-2 absolute z-10">
+                  <div className="-top-2 absolute left-2 z-10">
                     <div
                       className={cn(
                         "flex items-center gap-1 rounded-full px-2 py-1 font-medium text-white text-xs shadow-lg",
@@ -274,7 +274,11 @@ export default function Events() {
                                 .replace(/\s+/g, "-")
                                 .replace(/[^a-z0-9-]/g, "")}`}
                             >
-                              <HostAvatar name={event.host} avatar={event.avatar} size="sm" />
+                              <HostAvatar
+                                avatar={event.avatar}
+                                name={event.host}
+                                size="sm"
+                              />
                               <span className="hover:underline">
                                 {event.host}
                               </span>

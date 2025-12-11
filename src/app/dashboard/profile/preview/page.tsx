@@ -193,7 +193,10 @@ function ProfileView({ mode }: { mode: "public" | "social" | "after-meet" }) {
           </h3>
           <div className="grid gap-4">
             {publicQA.map((item) => (
-              <Card className="flex flex-col gap-1 border-l-4 border-l-green-500 p-4" key={item.id}>
+              <Card
+                className="flex flex-col gap-1 border-l-4 border-l-green-500 p-4"
+                key={item.id}
+              >
                 <p className="font-medium">{item.question}</p>
                 <p className="text-muted-foreground">{item.answer}</p>
               </Card>

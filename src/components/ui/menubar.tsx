@@ -187,7 +187,10 @@ function MenubarSeparator({
 }: React.ComponentProps<typeof MenubarPrimitive.Separator>) {
   return (
     <MenubarPrimitive.Separator
-      className={cn("h-px w-[calc(100%+8px)] -translate-x-1 bg-border", className)}
+      className={cn(
+        "-translate-x-1 h-px w-[calc(100%+8px)] bg-border",
+        className
+      )}
       data-slot="menubar-separator"
       {...props}
     />

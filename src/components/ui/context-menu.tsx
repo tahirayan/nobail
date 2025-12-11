@@ -210,7 +210,10 @@ function ContextMenuSeparator({
 }: React.ComponentProps<typeof ContextMenuPrimitive.Separator>) {
   return (
     <ContextMenuPrimitive.Separator
-      className={cn("h-px w-[calc(100%+8px)] -translate-x-1 bg-border", className)}
+      className={cn(
+        "-translate-x-1 h-px w-[calc(100%+8px)] bg-border",
+        className
+      )}
       data-slot="context-menu-separator"
       {...props}
     />

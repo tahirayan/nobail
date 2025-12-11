@@ -24,12 +24,12 @@ export function BentoCard({
       <div className="flex flex-1 items-center justify-center py-4">
         <div
           className={cn(
-            "relative aspect-square w-full sm:min-w-3xs rounded-[2rem] p-2 shadow-xl transition-transform group-hover:scale-105",
+            "relative aspect-square w-full rounded-[2rem] p-2 shadow-xl transition-transform group-hover:scale-105 sm:min-w-3xs",
             gradient,
             shadowColor
           )}
         >
-          <div className="flex h-full flex-col items-center justify-center gap-2 rounded-2xl bg-white/95 p-8 shadow-inner relative overflow-hidden">
+          <div className="relative flex h-full flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-white/95 p-8 shadow-inner">
             {children}
           </div>
         </div>
