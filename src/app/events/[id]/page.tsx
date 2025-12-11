@@ -614,7 +614,7 @@ export default function EventDetailPage() {
                 {hasReserved ? (
                   <>
                     <Separator />
-                    <div className="flex flex-col gap-4 rounded-lg border-2 border-green-200 bg-green-50 p-4">
+                    <div className="flex flex-col gap-4 rounded-lg border border-green-200 bg-green-50 p-4">
                       <h3 className="flex items-center gap-2 font-semibold text-green-800">
                         <Ticket className="size-5" />
                         Your Reservation

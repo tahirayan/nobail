@@ -415,7 +415,7 @@ function DropZone({
     <Card
       className={cn(
         `flex h-full flex-col ${bgColor} transition-colors duration-200`,
-        isDraggedOver ? "border-4 border-primary" : "border-2"
+        isDraggedOver ? "border-4 border-primary" : "border"
       )}
       onDragEnter={onDragEnter}
       onDragLeave={onDragLeave}
@@ -449,7 +449,7 @@ function DropZone({
           </Card>
         ))}
         {isPlaceholder ? (
-          <div className="flex h-full items-center justify-center rounded-md border-2 border-dashed p-4 text-center text-muted-foreground text-sm opacity-50">
+          <div className="flex h-full items-center justify-center rounded-md border border-dashed p-4 text-center text-muted-foreground text-sm opacity-50">
             Drop questions here
           </div>
         ) : null}

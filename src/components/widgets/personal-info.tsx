@@ -31,7 +31,7 @@ export default function PersonalInfo() {
   };
 
   return (
-    <Card className="sticky top-22.25 flex h-[calc(100vh-6.5rem)] flex-col border-2">
+    <Card className="sticky top-22.25 flex h-[calc(100vh-6.5rem)] flex-col border">
       <CardHeader className="flex flex-col gap-4">
         <CardTitle className="flex items-center gap-2 font-bold text-4xl">
           <HostAvatar name="Hamza Khan" size="md" />

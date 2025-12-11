@@ -86,14 +86,14 @@ export default function Venues() {
   };
 
   return (
-    <div className="flex flex-col gap-2 overflow-auto rounded-2xl border-2 [-ms-overflow-style:none] [scrollbar-width:none] [::-webkit-scrollbar]:hidden">
+    <div className="flex flex-col gap-2 bg-card overflow-auto rounded-2xl border [-ms-overflow-style:none] [scrollbar-width:none] [::-webkit-scrollbar]:hidden">
       <div className="sticky left-0 flex justify-between">
         <h1 className="flex items-center gap-2 p-4 font-bold text-2xl">
           <Building className="size-6" />
           <span>Venues</span>
         </h1>
         <Button
-          className="rounded-t-none rounded-r-none border-2 border-t-0 border-r-0"
+          className="rounded-t-none rounded-r-none border border-t-0 border-r-0"
           onClick={handleExpandClick}
           variant="outline"
         >

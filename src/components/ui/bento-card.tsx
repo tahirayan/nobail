@@ -16,23 +16,15 @@ export function BentoCard({
   return (
     <div
       className={cn(
-        "group relative flex flex-col rounded-4xl bg-secondary/30 p-2 transition-all hover:bg-secondary/50",
+        "relative aspect-square w-full rounded-2xl p-2 shadow-xl transition-transform group-hover:scale-105 sm:min-w-3xs",
+        gradient,
+        shadowColor,
         className
       )}
       {...props}
     >
-      <div className="flex flex-1 items-center justify-center py-4">
-        <div
-          className={cn(
-            "relative aspect-square w-full rounded-[2rem] p-2 shadow-xl transition-transform group-hover:scale-105 sm:min-w-3xs",
-            gradient,
-            shadowColor
-          )}
-        >
-          <div className="relative flex h-full flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl bg-white/95 p-8 shadow-inner">
-            {children}
-          </div>
-        </div>
+      <div className="relative flex h-full flex-col items-center justify-center gap-2 overflow-hidden rounded-lg border border-white bg-white/95 p-4 shadow">
+        {children}
       </div>
     </div>
   );

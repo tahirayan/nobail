@@ -197,7 +197,7 @@ export default function Events() {
   });
 
   return (
-    <Card className="border-2">
+    <Card className="border">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 font-semibold text-xl">
           <Search className="size-6 text-foreground" />
@@ -209,7 +209,7 @@ export default function Events() {
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {/* Day Filter Segmented Control */}
-        <div className="flex items-center justify-center overflow-x-auto rounded-md border-2 bg-secondary/30 p-1">
+        <div className="flex items-center justify-center overflow-x-auto rounded-md border bg-secondary/30 p-1">
           {dayFilters.map((day) => (
             <button
               className={`flex-1 whitespace-nowrap rounded-sm px-3 py-2 font-medium text-sm transition-all duration-200 ${
@@ -235,12 +235,12 @@ export default function Events() {
 
             return (
               <div
-                className="relative rounded-md border bg-gray-100"
+                className="relative rounded-md"
                 key={event.id}
               >
                 {/* Discount Flair */}
                 {event.isDiscountApplied && (
-                  <div className="-top-2 absolute left-2 z-10">
+                  <div className="-top-2 absolute right-2 z-10">
                     <div
                       className={cn(
                         "flex items-center gap-1 rounded-full px-2 py-1 font-medium text-white text-xs shadow-lg",
@@ -348,56 +348,6 @@ export default function Events() {
                     </div>
                   </CardContent>
                 </Card>
-                {relatedEvent && (
-                  <div className="flex flex-col gap-2 border-border/50 border-t p-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="font-medium text-lg">
-                          Related: {relatedEvent.title}
-                        </span>
-                        {relatedEvent.isSpecialVariant && (
-                          <Badge className="text-xs" variant="outline">
-                            Special Variant
-                          </Badge>
-                        )}
-                      </div>
-                      <div className="relative flex items-center justify-center gap-2 overflow-hidden rounded-2xl border border-primary bg-primary/24 px-2 py-1">
-                        <span className="z-10 font-medium text-sm text-white">
-                          {relatedEvent.spots.current} /
-                          {relatedEvent.spots.total}
-                        </span>
-                        <span
-                          className="absolute bottom-0 left-0 h-full bg-primary transition-all"
-                          style={{
-                            width: `${
-                              (relatedEvent.spots.current /
-                                relatedEvent.spots.total) *
-                              percentageMultiplier
-                            }%`,
-                          }}
-                        />
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-muted-foreground text-sm">
-                        {relatedEvent.time}
-                      </span>
-                      <span className="text-muted-foreground text-sm">
-                        {relatedEvent.location}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-muted-foreground text-sm">
-                        {relatedEvent.description}
-                      </span>
-                      <Button variant="outline">
-                        <Link href={`/events/${relatedEvent.id}`}>
-                          View {relatedEvent.time.split(" ")[0]} Event!
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                )}
               </div>
             );
           })}

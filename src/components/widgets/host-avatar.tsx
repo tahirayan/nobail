@@ -40,7 +40,7 @@ export function HostAvatar({
       <AvatarImage alt={name} src={avatar} />
       <AvatarFallback
         className={cn(
-          "bg-primary font-semibold text-primary-foreground",
+          "bg-primary/10 font-semibold text-primary",
           fallbackSizeClasses[size]
         )}
       >

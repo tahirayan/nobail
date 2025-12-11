@@ -229,7 +229,7 @@ function ProfileView({ mode }: { mode: "public" | "social" | "after-meet" }) {
             </div>
           </section>
         ) : (
-          <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed bg-gray-50 p-8 text-muted-foreground">
+          <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed bg-gray-50 p-8 text-muted-foreground">
             <Users className="size-8 opacity-20" />
             <p>Social Circle Q&A Hidden</p>
           </div>
@@ -271,7 +271,7 @@ function ProfileView({ mode }: { mode: "public" | "social" | "after-meet" }) {
             </div>
           </section>
         ) : (
-          <div className="flex flex-col items-center justify-center gap-2 rounded-lg border-2 border-dashed bg-gray-50 p-8 text-muted-foreground">
+          <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed bg-gray-50 p-8 text-muted-foreground">
             <Handshake className="size-8 opacity-20" />
             <p>InFAQ Hidden (Requires Meeting)</p>
           </div>

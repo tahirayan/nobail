@@ -16,7 +16,7 @@ export default function Header() {
         {/* Logo */}
         <Link href={isAuthenticated ? "/dashboard" : "/"}>
           <div className="flex size-14 cursor-pointer items-center justify-center bg-primary p-2 transition-opacity hover:opacity-90">
-            <div className="flex size-10 items-center justify-center border-2 border-white">
+            <div className="flex size-10 items-center justify-center border border-white">
               <h1 className="font-bold text-[10px] text-white">NoBail</h1>
             </div>
           </div>

@@ -59,40 +59,19 @@ export default function Home() {
       {/* Bento Grid Section */}
       <section className="grid w-full gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <BentoCard
-          gradient="bg-gradient-to-br from-blue-500 to-indigo-600"
+          gradient="bg-gradient-to-br from-blue-100 to-indigo-200"
           shadowColor="shadow-blue-500/20"
         >
           <div className="flex flex-col items-center gap-2">
-            <HostAvatar name="Hamza Khan" size="md" />
+            <HostAvatar name="Jane Doe" size="md" />
             <div className="flex flex-col items-center">
               <span className="font-bold text-gray-900 text-sm">
-                Hamza Khan
+                Jane Doe
               </span>
-              <span className="text-gray-500 text-xs">@hamzakkk</span>
+              <span className="text-gray-500 text-xs">@janedoe</span>
             </div>
           </div>
 
-          <div className="flex w-full items-center justify-between gap-2 rounded-xl bg-gray-50 p-2">
-            <div className="flex flex-col items-start">
-              <span className="font-bold text-gray-900 text-xs">1 Streak</span>
-              <div className="flex gap-0.5">
-                {[1, 2, 3].map((i) => (
-                  <div
-                    className={`size-1 rounded-full ${
-                      i === 3 ? "bg-gray-200" : "bg-green-500"
-                    }`}
-                    key={i}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center gap-1 rounded-full bg-white px-2 py-1 shadow-sm">
-              <CheckCircle2 className="size-3 text-green-500" />
-              <span className="font-bold text-[10px] text-green-700">
-                Active
-              </span>
-            </div>
-          </div>
           <div className="flex w-full flex-1 flex-col justify-end pt-4">
             <div className="flex flex-col gap-2 text-center">
               <h3 className="font-bold text-xl">Log in</h3>
@@ -104,13 +83,10 @@ export default function Home() {
         </BentoCard>
 
         <BentoCard
-          gradient="bg-gradient-to-br from-orange-400 to-red-500"
+          gradient="bg-gradient-to-br from-orange-100 to-red-200"
           shadowColor="shadow-orange-500/20"
         >
-          <div className="absolute top-0 right-0 p-4 opacity-10">
-            <Utensils className="-rotate-12 size-24" />
-          </div>
-          <div className="z-10 grid size-14 place-items-center rounded-full bg-orange-100 text-orange-600">
+          <div className="grid size-14 place-items-center rounded-full bg-orange-100 text-orange-600">
             <Calendar className="size-7" />
           </div>
           <div className="z-10 text-center">
@@ -130,7 +106,7 @@ export default function Home() {
         </BentoCard>
 
         <BentoCard
-          gradient="bg-gradient-to-br from-purple-500 to-pink-600"
+          gradient="bg-gradient-to-br from-purple-100 to-pink-200"
           shadowColor="shadow-purple-500/20"
         >
           <div className="grid size-14 place-items-center rounded-full bg-purple-100 text-purple-600">
@@ -165,7 +141,7 @@ export default function Home() {
         </BentoCard>
 
         <BentoCard
-          gradient="bg-gradient-to-br from-green-400 to-emerald-600"
+          gradient="bg-gradient-to-br from-green-100 to-emerald-200"
           shadowColor="shadow-green-500/20"
         >
           <div className="grid size-12 place-items-center rounded-full bg-green-100 text-green-600">
